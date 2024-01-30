@@ -18,6 +18,11 @@ nav {
     padding: 15px;
     font-size: 2.5vh;
     font-family: 'Laro Soft', 'Futura', 'Vilane', sans-serif;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1;
 }
 
 .logo, .home {
@@ -52,6 +57,7 @@ h1 {
     color:black;
     width: 20%;
     margin-left: 5%;
+    margin-top: 5%;
     padding-top: 3%;
     
 }
@@ -71,8 +77,16 @@ h1 {
     overflow: hidden;
     border: 1px solid black;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+    transition: transition 1.5s ease-in-out;
+    transform: translateY(100px); 
 }
+
+.merch-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 .merch-item img {
     width: 100%;
@@ -80,6 +94,13 @@ h1 {
     border-radius: 10px;
     transition: opacity 0.3s ease-in-out;
 }
+
+.merch-item {
+    opacity: 0;
+    transition: all 1s;
+}
+
+
 
 .merch-info {
     position: absolute;
@@ -150,15 +171,11 @@ h1 {
     bottom: 20px;
     right: 20px;
     display: flex;
+    justify-content: flex-end;
     margin-left: clamp(50%, 89%, 90%);
-    margin-right: 4%;
-
     padding: 20px;
     padding-bottom: 50px;
-    align-items: right;
-
 }
-
 
 .socials a {
     margin-right: 10px;

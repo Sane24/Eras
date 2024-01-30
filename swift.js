@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         merchItem.className = "merch-item";
 
         merchItem.innerHTML = `
-            <img src="${item.image}" alt="${item.title}">
+            <img src="${item.image}" alt="${item.name}">
             <div class="merch-info">
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
@@ -40,5 +40,23 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
         merchGrid.appendChild(merchItem);
     });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            console.log(entry); {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            }
+            
+        }); 
+    }); 
+
+    const hiddenElements = document.querySelectorAll('.merch-item');
+
+    hiddenElements.forEach((el) => observer.observe(el));
+
 
 });
